@@ -128,6 +128,9 @@ import com.google.android.systemui.reversecharging.ReverseChargingViewController
 import com.google.android.systemui.smartspace.SmartSpaceController;
 import com.google.android.systemui.statusbar.KeyguardIndicationControllerGoogle;
 
+// Custom Features
+import com.android.systemui.model.SysUiState;
+
 import java.util.Optional;
 import java.util.concurrent.Executor;
 
@@ -253,7 +256,8 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
             Optional<ReverseChargingViewController> reverseChargingViewControllerOptional,
             KeyguardIndicationControllerGoogle keyguardIndicationControllerGoogle,
             TunerService tunerService,
-            @Main Handler refreshNavbarHandler) {
+            @Main Handler refreshNavbarHandler,
+            SysUiState sysUiState) {
         super(context, notificationsController, fragmentService, lightBarController,
                 autoHideController, statusBarWindowController, statusBarWindowStateController,
                 keyguardUpdateMonitor, statusBarSignalPolicy, pulseExpansionHandler,
@@ -284,7 +288,7 @@ public class CentralSurfacesGoogle extends CentralSurfacesImpl {
                 jankMonitor, deviceStateManager, wiredChargingRippleController,
                 dreamManager, cameraLauncherLazy, lightRevealScrimViewModelLazy,
                 alternateBouncerInteractor, userTracker, fingerprintManagerProvider,
-                tunerService, refreshNavbarHandler);
+                tunerService, refreshNavbarHandler, sysUiState);
         mContext = context;
         mBatteryStateChangeCallback = new BatteryController.BatteryStateChangeCallback() {
             @Override
